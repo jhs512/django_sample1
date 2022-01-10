@@ -19,8 +19,13 @@ from django.contrib import admin
 from django.http import HttpResponse
 from django.urls import path, include
 
+from . import views
+
 urlpatterns = [
-    path('', lambda request: HttpResponse("<body>하이</body>")),
+    path('', views.index, name="main"),
+    path('accounts/', include('accounts.urls')),
+    path('products/', include('products.urls')),
+    path('qna/', include('qna.urls')),
     path('admin/', admin.site.urls),
 ]
 

@@ -35,14 +35,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
     # 서드파티
-    'debug_toolbar',  # 장고 디버그 툴바
+    'django_bootstrap5',
+    'django_pydenticon',
     # 로컬
-    'accounts.apps.AccountsConfig'
+    'accounts.apps.AccountsConfig',
+    'markets.apps.MarketsConfig',
+    'products.apps.ProductsConfig',
+    'qna.apps.QnaConfig',
 ]
 
 MIDDLEWARE = [
-    "debug_toolbar.middleware.DebugToolbarMiddleware",
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -57,7 +61,9 @@ ROOT_URLCONF = 'base.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            BASE_DIR / 'base/templates',
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

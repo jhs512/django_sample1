@@ -4,4 +4,5 @@ git+https://github.com/jhs512/django-pydenticon
 django_bootstrap5
 mysqlclient
 django-dotenv
-django-debug-toolbar
+django_bootstrap5
+lazy-string
