@@ -1,17 +1,20 @@
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.contrib.contenttypes.models import ContentType
 from django.core import exceptions
 from django.core.paginator import Paginator
 from django.http import HttpRequest
 from django.shortcuts import render, get_object_or_404, redirect
 
 # Create your views here.
-from products.models import Product
+from products.models import Product, ProductCategory
 from qna.forms import QuestionForm
 from qna.models import Question
 
 
 def product_list(request: HttpRequest):
+    product_cate = ProductCategory.objects.all()
+
     search_keyword = request.GET.get('search_keyword', '')
     page = request.GET.get('page', '1')
 
@@ -20,17 +23,16 @@ def product_list(request: HttpRequest):
     else:
         products = Product.objects.filter(display_name__icontains=search_keyword).order_by('-id')
 
-    paginator = Paginator(products, 10)  # 페이지당 10개씩 보여주기
+    paginator = Paginator(products, 8)  # 페이지당 10개씩 보여주기
     products = paginator.get_page(page)
 
     return render(request, "products/product_list.html", {
-        "products": products
+        "products": products,
+        "product_cate" : product_cate
     })
 
 
 def _product_detail(request: HttpRequest, product_id):
-    cart_add_form = ProductCartAddForm(product_id=product_id)
-
     product = get_object_or_404(Product, id=product_id)
 
     if request.method == "POST" and request.user.is_authenticated:
@@ -57,7 +59,6 @@ def _product_detail(request: HttpRequest, product_id):
         "product_reals": product_reals,
         "questions": questions,
         "question_form": form,
-        "cart_add_form": cart_add_form,
     })
 
 

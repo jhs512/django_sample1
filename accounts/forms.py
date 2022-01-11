@@ -1,7 +1,14 @@
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django import forms
 
 from .models import User
+
+
+class LoginForm(AuthenticationForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        self.fields['username'].label = '아이디'
 
 
 class FindUsernameForm(forms.ModelForm):
@@ -15,15 +22,16 @@ class FindUsernameForm(forms.ModelForm):
         fields = ['name', 'email']
 
 
-class SignupForm(UserCreationForm):
+class JoinForm(UserCreationForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['email'].required = True
         self.fields['name'].required = True
+        self.fields['username'].label = '아이디'
 
     class Meta(UserCreationForm.Meta):
         model = User
-        fields = ['username', 'email', 'name']
+        fields = ['username', 'password1', 'password2', 'email', 'name', 'gender', 'profile_img']
 
     def clean_email(self):
         email = self.cleaned_data.get('email')
