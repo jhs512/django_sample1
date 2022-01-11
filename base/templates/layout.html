@@ -52,9 +52,15 @@
                         <a class="nav-link" href="{% url 'accounts:logout' %}"><i class="fas fa-sign-out-alt"></i> 로그아웃</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link !t-whitespace-nowrap" href="#">
                             <i class="far fa-user"></i>
-                            {{user.name}}`s Mypage
+                            {{user.name}}
+                            {% if user.profile_img %}
+                            <img src="{{ user.profile_img.url }}"
+                                 style="width:24px; height:24px; object-fit:cover; border-radius:50%; display:inline-block;"/>
+                            {% else %}
+                            <img src="{% url 'pydenticon_image' user.username %}" style="width:24px; display:inline-block;border-radius:50%; "/>
+                            {% endif %}
                         </a>
                     </li>
                     {% else %}

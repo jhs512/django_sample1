@@ -16,8 +16,8 @@ Including another URLconf
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.http import HttpResponse
 from django.urls import path, include
+from django_pydenticon.views import image as pydenticon_image
 
 from . import views
 
@@ -27,6 +27,7 @@ urlpatterns = [
     path('products/', include('products.urls')),
     path('qna/', include('qna.urls')),
     path('admin/', admin.site.urls),
+    path('identicon/image/<path:data>/', pydenticon_image, name='pydenticon_image'),
 ]
 
 if settings.DEBUG:

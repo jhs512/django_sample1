@@ -28,6 +28,7 @@ class JoinForm(UserCreationForm):
         self.fields['email'].required = True
         self.fields['name'].required = True
         self.fields['username'].label = '아이디'
+        self.fields['profile_img'].widget.attrs['accept'] = 'image/png, image/gif, image/jpeg'
 
     class Meta(UserCreationForm.Meta):
         model = User

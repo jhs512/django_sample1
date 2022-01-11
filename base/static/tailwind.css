@@ -472,44 +472,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   position: relative;
 }
 
-.t-sticky {
-  position: -webkit-sticky;
-  position: sticky;
-}
-
-.\!t-sticky {
-  position: -webkit-sticky !important;
-  position: sticky !important;
-}
-
-.t-top-0 {
-  top: 0px;
-}
-
-.t-top-\[100px\] {
-  top: 100px;
-}
-
-.t-top-\[50px\] {
-  top: 50px;
-}
-
-.t-top-\[40px\] {
-  top: 40px;
-}
-
-.t-top-\[70px\] {
-  top: 70px;
-}
-
-.t-top-\[60px\] {
-  top: 60px;
-}
-
-.t-top-\[76px\] {
-  top: 76px;
-}
-
 .t--z-50 {
   z-index: -50;
 }
@@ -517,6 +479,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 .t-my-\[0px\] {
   margin-top: 0px;
   margin-bottom: 0px;
+}
+
+.t-mt-10 {
+  margin-top: 2.5rem;
 }
 
 .t-mt-3 {
@@ -531,12 +497,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-top: 3rem;
 }
 
-.t-mt-\[30px\] {
-  margin-top: 30px;
-}
-
-.t-mt-10 {
-  margin-top: 2.5rem;
+.t-mt-5 {
+  margin-top: 1.25rem;
 }
 
 .t-block {
@@ -591,16 +553,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   grid-template-columns: repeat(1, minmax(0, 1fr));
 }
 
-.t-grid-cols-2 {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
 .t-flex-col {
   flex-direction: column;
-}
-
-.t-place-items-start {
-  place-items: start;
 }
 
 .t-items-start {
@@ -615,28 +569,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   justify-content: center;
 }
 
-.t-gap-\[20px\] {
-  gap: 20px;
-}
-
 .t-gap-10 {
   gap: 2.5rem;
 }
 
-.t-gap-5 {
-  gap: 1.25rem;
-}
-
-.t-gap-6 {
-  gap: 1.5rem;
-}
-
-.t-gap-4 {
-  gap: 1rem;
-}
-
-.t-gap-\[10px\] {
-  gap: 10px;
+.t-gap-\[20px\] {
+  gap: 20px;
 }
 
 .t-overflow-hidden {
@@ -645,6 +583,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .t-whitespace-nowrap {
   white-space: nowrap;
+}
+
+.\!t-whitespace-nowrap {
+  white-space: nowrap !important;
 }
 
 .t-rounded {
@@ -681,14 +623,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   font-style: italic;
 }
 
-.t-text-black {
-  --tw-text-opacity: 1;
-  color: rgb(0 0 0 / var(--tw-text-opacity));
-}
-
 .t-text-gray-400 {
   --tw-text-opacity: 1;
   color: rgb(156 163 175 / var(--tw-text-opacity));
+}
+
+.t-text-black {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
 .t-no-underline {
@@ -819,12 +761,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   content: var(--tw-content);
 }
 
-.hover\:t-scale-110:hover {
-  --tw-scale-x: 1.1;
-  --tw-scale-y: 1.1;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
 .t-group:hover .group-hover\:t-scale-110 {
   --tw-scale-x: 1.1;
   --tw-scale-y: 1.1;
@@ -865,14 +801,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   .md\:t-grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
-
-  .md\:t-grid-cols-2 {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .md\:t-gap-10 {
-    gap: 2.5rem;
-  }
 }
 
 @media (min-width: 1024px) {
@@ -885,24 +813,12 @@ Ensure the default browser behavior of the `hidden` attribute.
     top: 76px;
   }
 
-  .lg\:t-grid-cols-2 {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .lg\:t-grid-cols-\[200px_minmax\(900px\2c _1fr\)_100px\] {
-    grid-template-columns: 200px minmax(900px, 1fr) 100px;
+  .lg\:t-grid-cols-\[3fr_4fr\] {
+    grid-template-columns: 3fr 4fr;
   }
 
   .lg\:t-grid-cols-\[1fr_2fr\] {
     grid-template-columns: 1fr 2fr;
-  }
-
-  .lg\:t-grid-cols-\[2fr_3fr\] {
-    grid-template-columns: 2fr 3fr;
-  }
-
-  .lg\:t-grid-cols-\[3fr_4fr\] {
-    grid-template-columns: 3fr 4fr;
   }
 
   @media (min-width: 640px) {
